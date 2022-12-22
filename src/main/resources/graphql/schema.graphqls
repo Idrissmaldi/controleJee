@@ -1,0 +1,47 @@
+type Query{
+    tickets : [Ticket],
+    matchs : [Match]
+
+}
+type Mutation{
+    addMatch (match : MatchDto) : Match,
+    addTicket(ticket : TicketDto) : Ticket,
+    updateTicket(ticket : TicketDto) : Ticket
+}
+
+input TicketDto {
+    id : ID,
+    reference : String,
+    prix : Float,
+    statut : Boolean
+
+
+}
+
+input MatchDto{
+    id : ID,
+    reference : String,
+    date : String,
+    lieu : String,
+    equi1 : String,
+    equi2 : String
+
+}
+
+
+type Match{
+    id : ID,
+    reference : String,
+    date : String,
+    lieu : String,
+    equi1 : String,
+    equi2 : String,
+    tickets : [Ticket]
+}
+type Ticket{
+    id : ID,
+    reference : String,
+    prix : Float,
+    statut : Boolean,
+
+}
